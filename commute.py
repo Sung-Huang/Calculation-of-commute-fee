@@ -51,7 +51,7 @@ bus_half=BUS()
 print(f'計程車全程直接到NMDC單程價格是{taxi_total.calculate_single_fee(38.5):.2f} AED')
 print(f'MBZ出發到NMDC計程車單程價格是{taxi_half.calculate_single_fee(8.5)} AED')
 print(f'計程車全程來回每月價格是{taxi_total.calculate_monthly_fee(38.5):.2f} AED')
-print(f'搭公車到MBZ單程價格{bus_half.calculate_single_fee(30)} AED')
+print(f'搭公車到MBZ單程價格是{bus_half.calculate_single_fee(30)} AED')
 print(f'搭公車到MBZ轉計程車到NMDC每月價格是{taxi_half.calculate_monthly_fee(8.5)+bus_half.calculate_montly_fee(30):.2f} AED')
 
 class Car:
