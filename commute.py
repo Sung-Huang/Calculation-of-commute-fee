@@ -81,9 +81,12 @@ class Car:
 car_a=Car("TOYOTA", "YARIS SEDAN 2024 E", 20.5, 63900, 0.15)
 car_b=Car("TOYOTA", "COROLLA 2024 XLI", 18.2, 74900, 0.15)
 car_c=Car("MAZDA", "3", 15, 95000, 0.16)
+car_d=Car('TOYOTA', "Raize 1L", 20.6, 66900, 0.15)
 print(f'{car_a.brand} {car_a.model}每月養車價格是{car_a.calculate_monthly_price(38, 6):.2f} AED')
 print(f'{car_b.brand} {car_b.model}每月養車價格是{car_b.calculate_monthly_price(38, 6):.2f} AED')
 print(f'{car_c.brand} {car_c.model}每月養車價格是{car_c.calculate_monthly_price(38, 6):.2f} AED')
+print(f'{car_d.brand} {car_d.model}每月養車價格是{car_d.calculate_monthly_price(38, 6):.2f} AED')
+
 
 # Add a comment test
 
