@@ -85,6 +85,7 @@ print(f'{car_a.brand} {car_a.model}每月養車價格是{car_a.calculate_monthly
 print(f'{car_b.brand} {car_b.model}每月養車價格是{car_b.calculate_monthly_price(38, 6):.2f} AED')
 print(f'{car_c.brand} {car_c.model}每月養車價格是{car_c.calculate_monthly_price(38, 6):.2f} AED')
 
+# Add a comment test
 
     
 
