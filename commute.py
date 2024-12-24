@@ -61,6 +61,7 @@ class Car:
         self.fuel_economy=fuel_economy #[km/L]
         self.price=price #[AED]
         self.maintenance=maintenance #[AED/km]
+
     def calculate_monthly_price(self, commute_single_distance, leisure_daily_additional_distance):
         annual_insurrance=5000
         annual_fix_parking=4500
@@ -76,6 +77,13 @@ class Car:
         monthly_parking_fix_fee=annual_fix_parking/num_month
         Total_monthly_cost=monthly_fuel_cost+depreciation+monthly_maintenance_fee+monthly_insurrance_fee+monthly_parking_fix_fee
         return Total_monthly_cost
+
+class UsedCar(Car):
+    def __init__(self, brand, model, fuel_economy, price, maintenance, manufacture_year, mileage):
+        super().__init__(brand, model, fuel_economy, price, maintenance, manufacture_year, mileage)
+        self.manufacture_year = manufacture_year
+        self.mileage = mileage
+
     
 # Set up car 
 car_a=Car("TOYOTA", "YARIS SEDAN 2024 E", 20.5, 63900, 0.15)
@@ -84,6 +92,7 @@ car_c=Car("MAZDA", "3", 15, 95000, 0.16)
 car_d=Car('TOYOTA', "Raize 1L", 20.6, 66900, 0.15)
 car_e=Car("NISSAN", "PATROL XE", 8.5, 239900, 0.17)
 car_f=Car("TOYOTA", "RUSH 1.5L", 16.3, 71900, 0.15)
+car_g=UsedCar("TOYOTA", "RUSH 1.5L", 16.3, 49500, 0.15, 2022, 90000)
 print(f'{car_a.brand} {car_a.model}每月養車價格是{car_a.calculate_monthly_price(38, 6):.2f} AED')
 print(f'{car_b.brand} {car_b.model}每月養車價格是{car_b.calculate_monthly_price(38, 6):.2f} AED')
 print(f'{car_c.brand} {car_c.model}每月養車價格是{car_c.calculate_monthly_price(38, 6):.2f} AED')
