@@ -80,7 +80,7 @@ class Car:
 
 class UsedCar(Car):
     def __init__(self, brand, model, fuel_economy, price, maintenance, manufacture_year, mileage):
-        super().__init__(brand, model, fuel_economy, price, maintenance, manufacture_year, mileage)
+        super().__init__(brand, model, fuel_economy, price, maintenance)
         self.manufacture_year = manufacture_year
         self.mileage = mileage
 
