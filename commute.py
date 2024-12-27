@@ -55,20 +55,21 @@ print(f'搭公車到MBZ單程價格是{bus_half.calculate_single_fee(30)} AED')
 print(f'搭公車到MBZ轉計程車到NMDC每月價格是{taxi_half.calculate_monthly_fee(8.5)+bus_half.calculate_montly_fee(30):.2f} AED')
 
 class Car:
-    def __init__(self, brand, model, fuel_economy, price, maintenance, mileage = 0):
+    def __init__(self, brand, model, energy_type, fuel_economy, price, maintenance, mileage = 0):
         self.brand=brand
         self.model=model
+        self.energy_type=energy_type
         self.fuel_economy=fuel_economy #[km/L]
         self.price=price #[AED]
         self.maintenance=maintenance #[AED/km]
         self.mileage = mileage
 
-    def calculate_monthly_price(self, commute_single_distance, leisure_daily_additional_distance):
+    def calculate_averaged_monthly_price(self, commute_single_distance, leisure_daily_additional_distance):
         used_mileage = self.mileage
-        annual_insurrance=5000
+        annual_insurrance=3000
         annual_fix_parking=4500
         expected_life_mileage=275000 - used_mileage
-        average_oil_price=3.5
+        average_oil_price=2.7
         num_month=12
         num_week=52
         averaged_monthly_mileage=(commute_single_distance*2+leisure_daily_additional_distance)*5*num_week/num_month
@@ -81,27 +82,29 @@ class Car:
         return Total_monthly_cost
 
 class UsedCar(Car):
-    def __init__(self, brand, model, fuel_economy, price, maintenance, mileage, manufacture_year):
-        super().__init__(brand, model, fuel_economy, price, maintenance, mileage)
+    def __init__(self, brand, model, energy_type, fuel_economy, price, maintenance, mileage, manufacture_year):
+        super().__init__(brand, model, energy_type, fuel_economy, price, maintenance, mileage)
         self.manufacture_year = manufacture_year
         self.mileage = mileage
 
     
 # Set up car 
-car_a=Car("TOYOTA", "YARIS SEDAN 2024 E", 20.5, 63900, 0.15)
-car_b=Car("TOYOTA", "COROLLA 2024 XLI", 18.2, 74900, 0.15)
-car_c=Car("MAZDA", "3", 15, 95000, 0.16)
-car_d=Car('TOYOTA', "Raize 1L", 20.6, 66900, 0.15)
-car_e=Car("NISSAN", "PATROL XE", 8.5, 239900, 0.17)
-car_f=Car("TOYOTA", "RUSH 1.5L", 16.3, 71900, 0.15)
-car_g=UsedCar("TOYOTA", "RUSH 1.5L", 16.3, 49500, 0.15, 90000, 2022)
-print(f'{car_a.brand} {car_a.model}每月養車價格是{car_a.calculate_monthly_price(38, 6):.2f} AED')
-print(f'{car_b.brand} {car_b.model}每月養車價格是{car_b.calculate_monthly_price(38, 6):.2f} AED')
-print(f'{car_c.brand} {car_c.model}每月養車價格是{car_c.calculate_monthly_price(38, 6):.2f} AED')
-print(f'{car_d.brand} {car_d.model}每月養車價格是{car_d.calculate_monthly_price(38, 6):.2f} AED')
-print(f'{car_e.brand} {car_e.model}每月養車價格是{car_e.calculate_monthly_price(38, 6):.2f} AED')
-print(f'{car_f.brand} {car_f.model}每月養車價格是{car_f.calculate_monthly_price(38, 6):.2f} AED')
-print(f'{car_g.brand} {car_g.model} manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_monthly_price(38, 6):.2f} AED')
+car_a=Car("TOYOTA", "YARIS SEDAN 2024 E", "Patrol", 20.5, 63900, 0.15)
+car_b=Car("TOYOTA", "COROLLA 2024 XLI", "Patrol", 18.2, 74900, 0.15)
+car_c=Car("MAZDA", "3", "Patrol", 15, 95000, 0.16)
+car_d=Car('TOYOTA', "Raize 1L", "Patrol", 20.6, 66900, 0.15)
+car_e=Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17)
+car_f=Car("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 71900, 0.15)
+car_g=UsedCar("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 49500, 0.15, 90000, 2022)
+car_h=Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 19.5, 152900, 0.15)
+print(f'{car_a.brand} {car_a.model} 每月養車價格是{car_a.calculate_averaged_monthly_price(38, 6):.2f} AED')
+print(f'{car_b.brand} {car_b.model} 每月養車價格是{car_b.calculate_averaged_monthly_price(38, 6):.2f} AED')
+print(f'{car_c.brand} {car_c.model} 每月養車價格是{car_c.calculate_averaged_monthly_price(38, 6):.2f} AED')
+print(f'{car_d.brand} {car_d.model} 每月養車價格是{car_d.calculate_averaged_monthly_price(38, 6):.2f} AED')
+print(f'{car_e.brand} {car_e.model} 每月養車價格是{car_e.calculate_averaged_monthly_price(38, 6):.2f} AED')
+print(f'{car_f.brand} {car_f.model} 每月養車價格是{car_f.calculate_averaged_monthly_price(38, 6):.2f} AED')
+print(f'{car_h.brand} {car_h.model} averaged monthly cost during the whole lifetime is {car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
+print(f'{car_g.brand} {car_g.model} used car manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_averaged_monthly_price(38, 6):.2f} AED')
 
 
 # Add a comment test
