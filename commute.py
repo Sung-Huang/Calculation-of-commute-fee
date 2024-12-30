@@ -84,10 +84,10 @@ class Car:
 
     def plot_real_monthly_price(self, commute_single_distance, leisure_daily_additional_distance, DP_rate, interest_rate, loan_term):
         used_mileage = self.mileage
-        annual_insurrance = 5000
-        annual_fix_parking = 800
+        annual_insurrance = 2000
+        annual_fix_parking = 0
         average_oil_price = 2.3
-        expected_life_mileage = 275000 - used_mileage
+        expected_life_mileage = 300000 - used_mileage
         num_month = 12
         num_week = 52
         averaged_monthly_mileage = (commute_single_distance * 2 + leisure_daily_additional_distance) * 5 * num_week / num_month
@@ -112,8 +112,8 @@ class Car:
             m_p.append(0)
         
         maintenance_1 = 0 # Annual maintenance fee in first year
-        maintenance_2_5 = 900 # Annual maintenance fee in 2-5 year
-        maintenance_6_10 = 2500 # Annual maintenance fee in 6-10 year
+        maintenance_2_5 = 0 # Annual maintenance fee in 2-5 year
+        maintenance_6_10 = 1000 # Annual maintenance fee in 6-10 year
 
         for i in range(expected_life_time + 1):
             if i < 12:
@@ -150,7 +150,7 @@ car_d=Car('TOYOTA', "Raize 1L", "Patrol", 20.6, 66900, 0.15)
 car_e=Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17)
 car_f=Car("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 71900, 0.15)
 car_g=UsedCar("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 49500, 0.15, 90000, 2022)
-car_h=Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 120900, 0.15)
+car_h=Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15)
 print(f'{car_a.brand} {car_a.model} {car_a.energy_type}每月養車價格是{car_a.calculate_averaged_monthly_price(38, 6):.2f} AED')
 print(f'{car_b.brand} {car_b.model} {car_b.energy_type}每月養車價格是{car_b.calculate_averaged_monthly_price(38, 6):.2f} AED')
 print(f'{car_c.brand} {car_c.model} {car_c.energy_type}每月養車價格是{car_c.calculate_averaged_monthly_price(38, 6):.2f} AED')
@@ -159,7 +159,7 @@ print(f'{car_e.brand} {car_e.model} {car_e.energy_type}每月養車價格是{car
 print(f'{car_f.brand} {car_f.model} {car_f.energy_type}每月養車價格是{car_f.calculate_averaged_monthly_price(38, 6):.2f} AED')
 print(f'{car_h.brand} {car_h.model} {car_h.energy_type}averaged monthly cost during the whole lifetime is {car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
 print(f'{car_g.brand} {car_g.model} {car_g.energy_type}used car manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_averaged_monthly_price(38, 6):.2f} AED')
-car_h.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
+car_h.plot_real_monthly_price(25, 10, 0.2, 0.023, 2)
 # car_e.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
 # car_d.plot_real_monthly_price(38, 6, 0.2, 0.023, 5)
 plt.show()
