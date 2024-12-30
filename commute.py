@@ -126,7 +126,7 @@ class Car:
         total_m_p = [x + Fixed_monthly_cost for x in m_p]
         
         plt.figure()
-        plt.plot([x for x in range(1, expected_life_time + 2)], total_m_p)
+        plt.bar([x for x in range(1, expected_life_time + 2)], total_m_p)
         plt.title(f"Real monthly cost of {self.brand} {self.model} {self.energy_type} by month")
         plt.xlabel("Month")
         plt.ylabel("Price in AED")
@@ -160,7 +160,8 @@ print(f'{car_f.brand} {car_f.model} {car_f.energy_type}每月養車價格是{car
 print(f'{car_h.brand} {car_h.model} {car_h.energy_type}averaged monthly cost during the whole lifetime is {car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
 print(f'{car_g.brand} {car_g.model} {car_g.energy_type}used car manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_averaged_monthly_price(38, 6):.2f} AED')
 car_h.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
-car_e.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
+# car_e.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
+# car_d.plot_real_monthly_price(38, 6, 0.2, 0.023, 5)
 plt.show()
 
 
