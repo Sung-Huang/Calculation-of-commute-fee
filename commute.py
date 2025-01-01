@@ -73,13 +73,14 @@ class Car:
         average_oil_price = 2.3
         num_month = 12
         num_week = 52
+        toll_fee = 4 * 2 * 22
         averaged_monthly_mileage = (commute_single_distance * 2+ leisure_daily_additional_distance) * 5 * num_week / num_month
         monthly_fuel_cost = averaged_monthly_mileage / self.fuel_economy * average_oil_price
         depreciation = self.price / expected_life_mileage * averaged_monthly_mileage
         monthly_maintenance_fee = self.maintenance * averaged_monthly_mileage
         monthly_insurrance_fee = annual_insurrance / num_month
         monthly_parking_fix_fee = annual_fix_parking / num_month
-        Total_monthly_cost = monthly_fuel_cost + depreciation + monthly_maintenance_fee + monthly_insurrance_fee + monthly_parking_fix_fee
+        Total_monthly_cost = monthly_fuel_cost + depreciation + monthly_maintenance_fee + monthly_insurrance_fee + monthly_parking_fix_fee + toll_fee
         return Total_monthly_cost
 
     def plot_real_monthly_price(self, commute_single_distance, leisure_daily_additional_distance, DP_rate, interest_rate, loan_term):
@@ -93,11 +94,11 @@ class Car:
         averaged_monthly_mileage = (commute_single_distance * 2 + leisure_daily_additional_distance) * 5 * num_week / num_month
         expected_life_time = int(expected_life_mileage / averaged_monthly_mileage)
         monthly_fuel_cost = averaged_monthly_mileage / self.fuel_economy * average_oil_price
-        
+        toll_fee = 4 * 2 * 22
         
         monthly_insurrance_fee = annual_insurrance / num_month
         monthly_parking_fix_fee = annual_fix_parking / num_month
-        Fixed_monthly_cost = monthly_fuel_cost + monthly_insurrance_fee + monthly_parking_fix_fee
+        Fixed_monthly_cost = monthly_fuel_cost + monthly_insurrance_fee + monthly_parking_fix_fee + toll_fee
 
         down_payment = DP_rate * self.price
         n = loan_term * 12 # loan_term in years
