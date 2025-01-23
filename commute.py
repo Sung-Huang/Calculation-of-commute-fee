@@ -22,8 +22,8 @@ class TAXI:
         flagfall = 5
         price_per_km = 1.82
         waiting_fee = 0.5
-        monthly_price = (distance * price_per_km + flagfall + waiting_fee * 5)*2*5*num_week/num_month
-        monthly_call_price = (distance * price_per_km + flagfall + waiting_fee * 5 + 4 )*2*5*num_week/num_month
+        monthly_price = (distance * price_per_km + flagfall + waiting_fee * 5) * 2 * 5 * num_week / num_month
+        monthly_call_price = (distance * price_per_km + flagfall + waiting_fee * 5 + 4 ) * 2 * 5 * num_week / num_month
         if callcar:
             return monthly_call_price
         else:
@@ -49,9 +49,9 @@ taxi_half = TAXI()
 bus_total = BUS()
 bus_half = BUS()
 
-print(f'計程車全程直接到NMDC單程價格是{taxi_total.calculate_single_fee(38.5):.2f} AED')
+print(f'計程車全程直接到NMDC單程價格是{taxi_total.calculate_single_fee(40):.2f} AED')
 print(f'MBZ出發到NMDC計程車單程價格是{taxi_half.calculate_single_fee(8.5)} AED')
-print(f'Monthly cost when taking taxi everyday is {taxi_total.calculate_monthly_fee(38.5):.2f} AED')
+print(f'Monthly cost when taking taxi everyday is {taxi_total.calculate_monthly_fee(40):.2f} AED')
 print(f'搭公車到MBZ單程價格是{bus_half.calculate_single_fee(30)} AED')
 print(f'搭公車到MBZ轉計程車到NMDC每月價格是{taxi_half.calculate_monthly_fee(8.5)+bus_half.calculate_montly_fee(30):.2f} AED')
 
@@ -86,7 +86,7 @@ class Car:
     def plot_real_monthly_price(self, commute_single_distance, leisure_daily_additional_distance, DP_rate, interest_rate, loan_term):
         used_mileage = self.mileage
         annual_insurrance = 2000
-        annual_fix_parking = 0
+        annual_fix_parking = 500
         average_oil_price = 2.3
         expected_life_mileage = 300000 - used_mileage
         num_month = 12
@@ -152,21 +152,20 @@ car_e=Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17)
 car_f=Car("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 71900, 0.15)
 car_g=UsedCar("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 49500, 0.15, 90000, 2022)
 car_h=Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15)
-print(f'{car_a.brand} {car_a.model} {car_a.energy_type}每月養車價格是{car_a.calculate_averaged_monthly_price(38, 6):.2f} AED')
-print(f'{car_b.brand} {car_b.model} {car_b.energy_type}每月養車價格是{car_b.calculate_averaged_monthly_price(38, 6):.2f} AED')
-print(f'{car_c.brand} {car_c.model} {car_c.energy_type}每月養車價格是{car_c.calculate_averaged_monthly_price(38, 6):.2f} AED')
-print(f'{car_d.brand} {car_d.model} {car_d.energy_type}每月養車價格是{car_d.calculate_averaged_monthly_price(38, 6):.2f} AED')
-print(f'{car_e.brand} {car_e.model} {car_e.energy_type}每月養車價格是{car_e.calculate_averaged_monthly_price(38, 6):.2f} AED')
-print(f'{car_f.brand} {car_f.model} {car_f.energy_type}每月養車價格是{car_f.calculate_averaged_monthly_price(38, 6):.2f} AED')
-print(f'{car_h.brand} {car_h.model} {car_h.energy_type} averaged monthly cost during the whole lifetime is {car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
-print(f'{car_g.brand} {car_g.model} {car_g.energy_type} used car manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_averaged_monthly_price(25, 6):.2f} AED')
-car_h.plot_real_monthly_price(25, 10, 0.2, 0.023, 2)
-# car_e.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
-# car_d.plot_real_monthly_price(38, 6, 0.2, 0.023, 5)
+# print(f'{car_a.brand} {car_a.model} {car_a.energy_type}每月養車價格是{car_a.calculate_averaged_monthly_price(38, 6):.2f} AED')
+# print(f'{car_b.brand} {car_b.model} {car_b.energy_type}每月養車價格是{car_b.calculate_averaged_monthly_price(38, 6):.2f} AED')
+# print(f'{car_c.brand} {car_c.model} {car_c.energy_type}每月養車價格是{car_c.calculate_averaged_monthly_price(38, 6):.2f} AED')
+# print(f'{car_d.brand} {car_d.model} {car_d.energy_type}每月養車價格是{car_d.calculate_averaged_monthly_price(38, 6):.2f} AED')
+# print(f'{car_e.brand} {car_e.model} {car_e.energy_type}每月養車價格是{car_e.calculate_averaged_monthly_price(38, 6):.2f} AED')
+# print(f'{car_f.brand} {car_f.model} {car_f.energy_type}每月養車價格是{car_f.calculate_averaged_monthly_price(38, 6):.2f} AED')
+# print(f'{car_h.brand} {car_h.model} {car_h.energy_type} averaged monthly cost during the whole lifetime is {car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
+# print(f'{car_g.brand} {car_g.model} {car_g.energy_type} used car manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_averaged_monthly_price(25, 6):.2f} AED')
+
+# car_h.plot_real_monthly_price(25, 10, 0.2, 0.023, 2)
+car_d.plot_real_monthly_price(40, 6, 0.3, 0.023, 5)
+car_g.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
 plt.show()
 
-
-# Add a comment test
 
     
 
