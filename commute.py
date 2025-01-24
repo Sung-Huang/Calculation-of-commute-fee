@@ -86,7 +86,7 @@ class Car:
     def plot_real_monthly_price(self, commute_single_distance, leisure_daily_additional_distance, DP_rate, interest_rate, loan_term):
         used_mileage = self.mileage
         annual_insurrance = 2000
-        annual_fix_parking = 500
+        annual_fix_parking = 800
         average_oil_price = 2.3
         expected_life_mileage = 300000 - used_mileage
         num_month = 12
@@ -144,14 +144,16 @@ class UsedCar(Car):
 
     
 # Set up car 
-car_a=Car("TOYOTA", "YARIS SEDAN 2024 E", "Patrol", 20.5, 63900, 0.15)
-car_b=Car("TOYOTA", "COROLLA 2024 XLI", "Patrol", 18.2, 74900, 0.15)
-car_c=Car("MAZDA", "3", "Patrol", 15, 95000, 0.16)
-car_d=Car('TOYOTA', "Raize 1L", "Patrol", 20.6, 66900, 0.15)
-car_e=Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17)
-car_f=Car("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 71900, 0.15)
-car_g=UsedCar("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 49500, 0.15, 90000, 2022)
-car_h=Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15)
+car_a = Car("TOYOTA", "YARIS SEDAN 2024 E", "Patrol", 20.5, 63900, 0.15)
+car_b = Car("TOYOTA", "COROLLA 2024 XLI", "Patrol", 18.2, 74900, 0.15)
+car_c = Car("MAZDA", "3", "Patrol", 15, 95000, 0.16)
+car_d = Car('TOYOTA', "Raize 1L", "Patrol", 20.6, 66900, 0.15)
+car_e = Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17)
+car_f = Car("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 71900, 0.15)
+car_g = UsedCar("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 49500, 0.15, 90000, 2022)
+car_h = Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15)
+car_i = Car("Haval", "Jolion", "Patrol", 12.3, 49900, 0.18)
+car_j = Car("Jetour", "Dashing 1.5L", "Patrol", 13.5,  65000, 0.18)
 # print(f'{car_a.brand} {car_a.model} {car_a.energy_type}每月養車價格是{car_a.calculate_averaged_monthly_price(38, 6):.2f} AED')
 # print(f'{car_b.brand} {car_b.model} {car_b.energy_type}每月養車價格是{car_b.calculate_averaged_monthly_price(38, 6):.2f} AED')
 # print(f'{car_c.brand} {car_c.model} {car_c.energy_type}每月養車價格是{car_c.calculate_averaged_monthly_price(38, 6):.2f} AED')
@@ -162,8 +164,9 @@ car_h=Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15)
 # print(f'{car_g.brand} {car_g.model} {car_g.energy_type} used car manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_averaged_monthly_price(25, 6):.2f} AED')
 
 # car_h.plot_real_monthly_price(25, 10, 0.2, 0.023, 2)
-car_d.plot_real_monthly_price(40, 6, 0.3, 0.023, 5)
-car_g.plot_real_monthly_price(25, 6, 0.2, 0.023, 2)
+car_d.plot_real_monthly_price(40, 6, 0.3, 0.029, 5)
+car_i.plot_real_monthly_price(40, 6, 0.3, 0.029, 5)
+car_j.plot_real_monthly_price(40, 6, 0.3, 0.029, 5)
 plt.show()
 
 
