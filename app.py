@@ -92,6 +92,9 @@ cars = {
     "MAZDA 3": Car("MAZDA", "3", "Patrol", 15, 95000, 0.16),
     "TOYOTA Raize 1L": Car("TOYOTA", "Raize 1L", "Patrol", 20.6, 66900, 0.15),
     "NISSAN PATROL XE": Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17),
+    "2.5L RAV4 VXR":  Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15),
+    "Jolion": Car("Haval", "Jolion", "Patrol", 12.3, 49900, 0.18),
+    "Dashing 1.5L": Car("Jetour", "Dashing 1.5L", "Patrol", 13.5,  65000, 0.18)
 }
 
 # 建立 Dash 應用
