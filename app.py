@@ -113,10 +113,10 @@ app.layout = html.Div([
     dcc.Input(id='leisure-distance', type='number', value=5),
     
     html.Label("Down payment rate (%)"),
-    dcc.Input(id='dp-rate', type='number', value=0.2, step=0.01),
+    dcc.Input(id='dp-rate', type='number', value=20, step=1),
     
     html.Label("Interest Rate (%)"),
-    dcc.Input(id='interest-rate', type='number', value=0.03, step=0.001),
+    dcc.Input(id='interest-rate', type='number', value=3, step=0.1),
     
     html.Label("Loan term"),
     dcc.Input(id='loan-term', type='number', value=5),

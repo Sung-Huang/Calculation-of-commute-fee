@@ -161,8 +161,8 @@ print(f'{car_d.brand} {car_d.model} {car_d.energy_type}每月養車價格是{car
 print(f'{car_e.brand} {car_e.model} {car_e.energy_type}每月養車價格是{car_e.calculate_averaged_monthly_price(38, 6):.2f} AED')
 print(f'{car_f.brand} {car_f.model} {car_f.energy_type}每月養車價格是{car_f.calculate_averaged_monthly_price(38, 6):.2f} AED')
 print(f'{car_h.brand} {car_h.model} {car_h.energy_type}每月養車價格是{car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
-print(f'{car_i.brand} {car_i.model} {car_i.energy_type}每月養車價格是{car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
-print(f'{car_j.brand} {car_j.model} {car_j.energy_type}每月養車價格是{car_h.calculate_averaged_monthly_price(25, 6):.2f} AED')
+print(f'{car_i.brand} {car_i.model} {car_i.energy_type}每月養車價格是{car_i.calculate_averaged_monthly_price(25, 6):.2f} AED')
+print(f'{car_j.brand} {car_j.model} {car_j.energy_type}每月養車價格是{car_j.calculate_averaged_monthly_price(25, 6):.2f} AED')
 print(f'{car_g.brand} {car_g.model} {car_g.energy_type} used car manufactured in year {car_g.manufacture_year}每月養車價格是{car_g.calculate_averaged_monthly_price(25, 6):.2f} AED')
 
 # car_h.plot_real_monthly_price(25, 10, 0.2, 0.023, 2)
