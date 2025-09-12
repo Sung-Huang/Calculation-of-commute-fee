@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 import pandas as pd
+import plotly.express as px
 
 class Car:
     def __init__(self, brand, model, energy_type, fuel_economy, price, maintenance, mileage = 0):
@@ -79,11 +80,7 @@ class Car:
         
         total_m_p = [x + Fixed_monthly_cost for x in m_p]
         
-        plt.figure()
-        plt.bar([x for x in range(1, expected_life_time + 2)], total_m_p)
-        plt.title(f"Real monthly cost of {self.brand} {self.model} {self.energy_type} by month")
-        plt.xlabel("Month")
-        plt.ylabel("Price in AED")
+        return total_m_p, expected_life_time # Return the data
         
 # 設定可選車款
 cars = {
@@ -93,7 +90,7 @@ cars = {
     "TOYOTA Raize 1L": Car("TOYOTA", "Raize 1L", "Patrol", 20.6, 66900, 0.15),
     "NISSAN PATROL XE": Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17),
     "2.5L RAV4 VXR":  Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15),
-    "Jolion": Car("Haval", "Jolion", "Patrol", 12.3, 49900, 0.18),
+    "Jolion": Car("Haval", "Jolion", "Patrol", 12.3, 52000, 0.18),
     "Dashing 1.5L": Car("Jetour", "Dashing 1.5L", "Patrol", 13.5,  65000, 0.18)
 }
 
@@ -127,11 +124,11 @@ app.layout = html.Div([
     html.Div(id='monthly-cost-output'),
     
     html.H2("Monthly Cost Chart"),
-    html.Img(id='cost-chart')
+    dcc.Graph(id='cost-chart')
 ])
 
 @app.callback(
-    [Output('monthly-cost-output', 'children'), Output('cost-chart', 'src')],
+    [Output('monthly-cost-output', 'children'), Output('cost-chart', 'figure')],
     [Input('calculate-btn', 'n_clicks')],
     [dash.dependencies.State('car-selection', 'value'),
      dash.dependencies.State('commute-distance', 'value'),
@@ -144,16 +141,21 @@ def update_car_cost(n_clicks, car_model, commute_distance, leisure_distance, dp_
     car = cars[car_model]
     monthly_cost = car.calculate_averaged_monthly_price(commute_distance, leisure_distance)
     
-    # 生成成本變化圖
-    plt.figure()
-    car.plot_real_monthly_price(commute_distance, leisure_distance, dp_rate, interest_rate, loan_term)
-    buf = io.BytesIO()
-    plt.savefig(buf, format="png")
-    buf.seek(0)
-    encoded_image = base64.b64encode(buf.read()).decode('utf-8')
-    image_src = "data:image/png;base64,{}".format(encoded_image)
+    # Generate data for the plot
+    # The plot_real_monthly_price method needs to be adjusted
+    # to return the necessary data, not a matplotlib plot
+    total_m_p, expected_life_time = car.plot_real_monthly_price(commute_distance, leisure_distance, dp_rate, interest_rate, loan_term)
     
-    return f"Averaged monthly cost: {monthly_cost:.2f} AED", image_src
+    # Create an interactive Plotly bar chart
+    fig = px.bar(
+        x=[x for x in range(1, expected_life_time + 2)],
+        y=total_m_p,
+        labels={'x': 'Month', 'y': 'Price in AED'},
+        title=f"Real monthly cost of {car.brand} {car.model} {car.energy_type} by month"
+    )
+
+    # The returned figure object will be automatically handled by dcc.Graph
+    return f"Averaged monthly cost: {monthly_cost:.2f} AED", fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)

@@ -67,10 +67,10 @@ class Car:
 
     def calculate_averaged_monthly_price(self, commute_single_distance, leisure_daily_additional_distance):
         used_mileage = self.mileage
-        annual_insurrance = 3000
+        annual_insurrance = 4000
         annual_fix_parking = 800
         expected_life_mileage = 275000 - used_mileage
-        average_oil_price = 2.3
+        average_oil_price = 2.58
         num_month = 12
         num_week = 52
         toll_fee = 4 * 2 * 22
@@ -85,9 +85,9 @@ class Car:
 
     def plot_real_monthly_price(self, commute_single_distance, leisure_daily_additional_distance, DP_rate, interest_rate, loan_term):
         used_mileage = self.mileage
-        annual_insurrance = 2000
+        annual_insurrance = 4000
         annual_fix_parking = 800
-        average_oil_price = 2.3
+        average_oil_price = 2.58
         expected_life_mileage = 300000 - used_mileage
         num_month = 12
         num_week = 52
@@ -126,11 +126,13 @@ class Car:
         
         total_m_p = [x + Fixed_monthly_cost for x in m_p]
         
-        plt.figure()
+        fig, ax = plt.figure()
         plt.bar([x for x in range(1, expected_life_time + 2)], total_m_p)
         plt.title(f"Real monthly cost of {self.brand} {self.model} {self.energy_type} by month")
         plt.xlabel("Month")
         plt.ylabel("Price in AED")
+        ax.set_xticks([3* x for x in range(51)])
+        ax.set_yticks([1000 * y for y in range(22)])
         
         
         
@@ -152,7 +154,7 @@ car_e = Car("NISSAN", "PATROL XE", "Patrol", 8.5, 239900, 0.17)
 car_f = Car("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 71900, 0.15)
 car_g = UsedCar("TOYOTA", "RUSH 1.5L", "Patrol", 16.3, 49500, 0.15, 90000, 2022)
 car_h = Car("TOYOTA", "2.5L RAV4 VXR", "Hybrid", 22.2, 158399, 0.15)
-car_i = Car("Haval", "Jolion", "Patrol", 12.3, 49900, 0.18)
+car_i = Car("Haval", "Jolion", "Patrol", 12.3, 52000, 0.18)
 car_j = Car("Jetour", "Dashing 1.5L", "Patrol", 13.5,  65000, 0.18)
 print(f'{car_a.brand} {car_a.model} {car_a.energy_type}每月養車價格是{car_a.calculate_averaged_monthly_price(38, 6):.2f} AED')
 print(f'{car_b.brand} {car_b.model} {car_b.energy_type}每月養車價格是{car_b.calculate_averaged_monthly_price(38, 6):.2f} AED')
