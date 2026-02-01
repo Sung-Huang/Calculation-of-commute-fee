@@ -1,0 +1,82 @@
+[
+  {
+    "name": "TOYOTA YARIS SEDAN 2024 E",
+    "brand": "TOYOTA",
+    "model": "YARIS SEDAN 2024 E",
+    "energy_type": "Patrol",
+    "fuel_economy_km_per_liter": 20.5,
+    "price_aed": 63900,
+    "maintenance_aed_per_km": 0.15,
+    "mileage_km": 0
+  },
+  {
+    "name": "TOYOTA COROLLA 2024 XLI",
+    "brand": "TOYOTA",
+    "model": "COROLLA 2024 XLI",
+    "energy_type": "Patrol",
+    "fuel_economy_km_per_liter": 18.2,
+    "price_aed": 74900,
+    "maintenance_aed_per_km": 0.15,
+    "mileage_km": 0
+  },
+  {
+    "name": "MAZDA 3",
+    "brand": "MAZDA",
+    "model": "3",
+    "energy_type": "Patrol",
+    "fuel_economy_km_per_liter": 15,
+    "price_aed": 95000,
+    "maintenance_aed_per_km": 0.16,
+    "mileage_km": 0
+  },
+  {
+    "name": "TOYOTA Raize 1L",
+    "brand": "TOYOTA",
+    "model": "Raize 1L",
+    "energy_type": "Patrol",
+    "fuel_economy_km_per_liter": 20.6,
+    "price_aed": 66900,
+    "maintenance_aed_per_km": 0.15,
+    "mileage_km": 0
+  },
+  {
+    "name": "NISSAN PATROL XE",
+    "brand": "NISSAN",
+    "model": "PATROL XE",
+    "energy_type": "Patrol",
+    "fuel_economy_km_per_liter": 8.5,
+    "price_aed": 239900,
+    "maintenance_aed_per_km": 0.17,
+    "mileage_km": 0
+  },
+  {
+    "name": "2.5L RAV4 VXR",
+    "brand": "TOYOTA",
+    "model": "2.5L RAV4 VXR",
+    "energy_type": "Hybrid",
+    "fuel_economy_km_per_liter": 22.2,
+    "price_aed": 158399,
+    "maintenance_aed_per_km": 0.15,
+    "mileage_km": 0
+  },
+  {
+    "name": "Jolion",
+    "brand": "Haval",
+    "model": "Jolion",
+    "energy_type": "Patrol",
+    "fuel_economy_km_per_liter": 12.3,
+    "price_aed": 52000,
+    "maintenance_aed_per_km": 0.18,
+    "mileage_km": 0
+  },
+  {
+    "name": "Dashing 1.5L",
+    "brand": "Jetour",
+    "model": "Dashing 1.5L",
+    "energy_type": "Patrol",
+    "fuel_economy_km_per_liter": 13.5,
+    "price_aed": 65000,
+    "maintenance_aed_per_km": 0.18,
+    "mileage_km": 0
+  }
+]
